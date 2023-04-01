@@ -1,0 +1,16 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Sample of AWS SAM with C++.
+
+Resources:
+  SampleFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: .
+      Handler: aws-sam-cpp-sample
+      Runtime: provided.al2
+      Architectures:
+        - arm64
+    Metadata:
+      # この関数をビルドする際に `make build-SampleFunction` が呼ばれる
+      BuildMethod: makefile

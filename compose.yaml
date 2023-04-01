@@ -1,0 +1,16 @@
+services:
+  aws-sam-cpp-sample-build:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: aws-sam-cpp-sample-build
+    volumes:
+      - type: bind
+        source: .
+        target: /app
+    working_dir: /app/build
+    command: sh -c '
+      cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/lambda-install
+      && make
+      && make aws-sam-cpp-sample
+      '
