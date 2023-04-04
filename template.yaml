@@ -10,7 +10,7 @@ Resources:
       Handler: aws-sam-cpp-sample
       Runtime: provided.al2
       Architectures:
-        - arm64
+        - x86_64
     Metadata:
       # この関数をビルドする際に `make build-SampleFunction` が呼ばれる
       BuildMethod: makefile
